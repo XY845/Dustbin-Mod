@@ -1,27 +1,35 @@
 # Dustbin-Mod
 
-<img src="src/main/resources/assets/dustbin/icon.png" width="96" alt="Dustbin">
+![Dustbin](src/main/resources/assets/dustbin/icon.png)
 
 ![Minecraft](https://img.shields.io/badge/Minecraft-26.2-brightgreen)
+
 ![Loaders](https://img.shields.io/badge/Loaders-Fabric-blue)
+
 ![Java](https://img.shields.io/badge/Java-25-orange)
+
 ![License](https://img.shields.io/badge/License-CC0--1.0-lightgrey)
 
-> 掉落物不再无声消失 —— 它们会滑进一个共享的垃圾桶。
+> 掉落物不再无声消失 —— 它们会滑进一个共享的垃圾桶。  
 > Dropped items no longer vanish silently — they slide into a shared trash bin.
 
 一个 **Minecraft 26.2** 的模组：原版里掉落物 5 分钟后直接消失；这个模组把它改成：**掉落物在设定时间后进入垃圾桶**，你随时可以把东西捡回来。
 
 A mod for **Minecraft 26.2**: in vanilla, dropped items despawn after 5 minutes. This mod changes that — items are moved into a trash bin after a configurable delay, and you can take them back out whenever you like.
 
+![垃圾桶的关闭与打开状态（离线渲染）/ Closed and open states (offline render)](docs/preview.png)
+
+*左：关盖 · 右：开盖（95°）。此图由方块模型离线渲染，不含游戏内光影。*  
+*Left: closed · Right: open at 95°. Rendered offline from the block model — no in-game lighting.*
+
 ---
 
 ## 支持的模组端 / Supported loaders
 
-| 模组端 Loader | 状态 Status | 产物 Artifact |
-|---|---|---|
-| Fabric | 可用 / Available | `dustbin-fabric-<version>.jar` |
-| Forge / NeoForge | 尚未支持 / Not yet supported | — |
+| 模组端 Loader       | 状态 Status                | 产物 Artifact                    |
+| ---------------- | ------------------------ | ------------------------------ |
+| Fabric           | 可用 / Available           | `dustbin-fabric-<version>.jar` |
+| Forge / NeoForge | 尚未支持 / Not yet supported | —                              |
 
 模组身份标识（mod id）是 `dustbin`，**不随模组端变化**；只有产物文件名带模组端后缀。这样把世界从 Fabric 构建切换到其他模组端时，存档里的垃圾桶与桶内物品可以原样保留。
 
@@ -33,21 +41,21 @@ The mod id is `dustbin` and **stays the same across loaders**; only the artifact
 
 ### 掉落物进桶 / Items drop into the bin
 
-- 物品存活时间达到阈值后自动收入垃圾桶，原版的 5 分钟消失逻辑被取消。
-- Items are collected as soon as they reach the configured age; vanilla's 5-minute despawn is cancelled.
-- 阈值默认 **10 分钟**，可调范围 **1 ~ 1440 分钟**。
-- The default threshold is **10 minutes**, adjustable between **1 and 1440 minutes**.
-- 垃圾桶已满时（54 格全占、且没有同类物品所在格），物品**回落到原版行为**正常消失 —— 它是兜底，不是无限仓库。
-- When the bin is full (all 54 slots taken, with no slot holding the same item), items **fall back to vanilla despawn** — the bin is a safety net, not unlimited storage.
+- 物品存活时间达到阈值后自动收入垃圾桶，原版的 5 分钟消失逻辑被取消。  
+  Items are collected as soon as they reach the configured age; vanilla's 5-minute despawn is cancelled.
+- 阈值默认 **10 分钟**，可调范围 **1 ~ 1440 分钟**。  
+  The default threshold is **10 minutes**, adjustable between **1 and 1440 minutes**.
+- 垃圾桶已满时（54 格全占、且没有同类物品所在格），物品**回落到原版行为**正常消失 —— 它是兜底，不是无限仓库。  
+  When the bin is full (all 54 slots taken, with no slot holding the same item), items **fall back to vanilla despawn** — the bin is a safety net, not unlimited storage.
 
 ### 54 格共享存储 / 54 slots, shared storage
 
 | 规则 Rule | 说明 Description |
-|---|---|
-| 同一维度内共享<br>Shared per dimension | 同一维度内所有垃圾桶共用同一份存储，不是每个方块各存一份<br>Every bin in a dimension reads the same storage — not one per block |
-| 一种物品只占一格<br>One item type per slot | 相同 id + 组件视为同种，绝不跨格堆放<br>Matching id + components count as one type, and never span slots |
-| 每格上限 = 物品自身上限<br>Per-slot cap = the item's own cap | 鸡蛋 16、石头 64、工具 1<br>Eggs 16, stone 64, tools 1 |
-| 超出部分直接丢弃<br>Overflow is discarded | 已存 64 个石头时再来 65 个 → 只保留 64，多出的丢掉<br>65 stone on top of 64 stored → keep 64, discard the rest |
+| --- | --- |
+| 同一维度内共享 / Shared per dimension | 同一维度内所有垃圾桶共用同一份存储，不是每个方块各存一份。Every bin in a dimension reads the same storage — not one per block. |
+| 一种物品只占一格 / One item type per slot | 相同 id + 组件视为同种，绝不跨格堆放。Matching id + components count as one type, and never span slots. |
+| 每格上限 = 物品自身上限 / Per-slot cap = the item's own cap | 鸡蛋 16、石头 64、工具 1。Eggs 16, stone 64, tools 1. |
+| 超出部分直接丢弃 / Overflow is discarded | 已存 64 个石头时再来 65 个 → 只保留 64，多出的丢掉。65 stone on top of 64 stored → keep 64, discard the rest. |
 
 ### 只取不放 / Take-only GUI
 
@@ -64,9 +72,9 @@ The lid lifts when the GUI opens and folds back when it closes (ESC, walking awa
 ### 指令 / Commands
 
 | 指令 Command | 作用 Description |
-|---|---|
-| `/dustbin clear` | 清空垃圾桶，反馈清掉的物品组数<br>Empty the bin; reports how many stacks were cleared |
-| `/dustbin settime <minutes>` | 设置收集阈值，范围 1 ~ 1440 分钟<br>Set the collection threshold (1–1440 minutes) |
+| --- | --- |
+| `/dustbin clear` | 清空垃圾桶，反馈清掉的物品组数。Empty the bin; reports how many stacks were cleared. |
+| `/dustbin settime <minutes>` | 设置收集阈值，范围 1 ~ 1440 分钟。Set the collection threshold (1–1440 minutes). |
 
 权限：单人世界的房主可直接使用；多人服务器需要管理员权限。
 
@@ -94,11 +102,11 @@ I I I
 
 Only a Fabric build is available for now:
 
-1. 安装 **Fabric Loader ≥ 0.19.3** 与 **Fabric API**
+1. 安装 **Fabric Loader ≥ 0.19.3** 与 **Fabric API**  
    Install **Fabric Loader ≥ 0.19.3** and **Fabric API**
-2. 把 `dustbin-fabric-1.0.0.jar` 放进 `mods/`
+2. 把 `dustbin-fabric-1.0.0.jar` 放进 `mods/`  
    Put `dustbin-fabric-1.0.0.jar` into `mods/`
-3. 需要 **Java 25**
+3. 需要 **Java 25**  
    Requires **Java 25**
 
 ---
@@ -115,12 +123,12 @@ The Fabric build mixes into `ItemEntity#tick`. It **may conflict** with other mo
 
 ## 行为细节与已知限制 / Behaviour and known limitations
 
-- **物品年龄只在所在区块被加载时增长。** 长期未加载的区块里的掉落物不会"到点进桶"，直到有人靠近。
-- **Item age only advances while the chunk is loaded.** Items in unloaded chunks will not be collected until a player comes back.
-- **桶盖打开约 95°，几乎竖直立在桶后。** 正上方或紧贴后方有方块时会有轻微穿模，属已知视觉瑕疵。
-- **The lid opens to about 95°**, standing almost vertically behind the bin. With a block directly above or immediately behind, it clips slightly — a known visual flaw.
-- **存储按维度保存在世界数据里。** 移除本模组后，数据文件仍留在存档中但不再被读取。
-- **Storage is saved per dimension** in the world data. If you remove the mod, the data file stays in the save but is never read again.
+- **物品年龄只在所在区块被加载时增长。** 长期未加载的区块里的掉落物不会"到点进桶"，直到有人靠近。  
+  **Item age only advances while the chunk is loaded.** Items in unloaded chunks will not be collected until a player comes back.
+- **开盖角度 95°，盖子几乎竖直立在桶后，垂直占用超出方块本身。** 按模型几何实测：盖顶伸到方块顶面**上方约 0.37 格**，所以正上方紧贴方块时必然穿模；盖沿向后探出约 **0.035 格**，把角度压到 85° 以内即可消除。但即便压到 60°，盖顶仍有约 0.33 格高 —— 开盖的垂直占用无法靠调角度规避，只能靠留空解决。  
+  **The lid opens to 95°**, standing almost vertically behind the bin, so it occupies space above the block. Measured from the model geometry: the lid top reaches about **0.37 blocks above** the block's top face, so a block directly overhead is always clipped; the tab juts roughly **0.035 blocks** rearward, which disappears once the angle drops below 85°. Even at 60°, though, the lid still stands about 0.33 blocks tall — the vertical footprint of an open lid cannot be designed away by lowering the angle, only accommodated by leaving headroom.
+- **存储按维度保存在世界数据里。** 移除本模组后，数据文件仍留在存档中但不再被读取。  
+  **Storage is saved per dimension** in the world data. If you remove the mod, the data file stays in the save but is never read again.
 
 ---
 
