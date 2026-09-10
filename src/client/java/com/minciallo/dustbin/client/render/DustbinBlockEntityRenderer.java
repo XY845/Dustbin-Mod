@@ -40,12 +40,34 @@ import java.util.Map;
  * the in-world form are the same bin. The lid pivots on its back-bottom edge.
  */
 public class DustbinBlockEntityRenderer implements BlockEntityRenderer<DustbinBlockEntity, DustbinRenderState> {
-	/** Top plate of the lid. */
-	private static final Identifier LID_TOP = MinCialloDustbin.id("entity/dustbin/lid_top");
+	/**
+	 * Lid textures. The lid is drawn twice, by two different mechanisms, and the two
+	 * mechanisms impose <em>different</em> rules on the same files:
+	 *
+	 * <ul>
+	 * <li><b>Here (block entity renderer)</b> — {@link RenderTypes#entityCutout} hands the
+	 * identifier straight to {@code TextureManager.getTexture}, with no prefixing or
+	 * suffixing. So the path must be <em>full</em>: a {@code textures/} prefix and a
+	 * {@code .png} suffix are both required. A short path such as
+	 * {@code block/dustbin_lid_top} resolves to nothing and renders as the
+	 * missing-texture checkerboard.
+	 * <li><b>The block model</b> ({@code models/block/dustbin.json}), used for the item
+	 * icon — model textures are stitched into the {@code minecraft:blocks} atlas, whose
+	 * only directory source is {@code textures/block}. A file anywhere else (for example
+	 * {@code textures/entity/...}) is never stitched, so the model cannot resolve it and
+	 * the item form renders as the checkerboard too.
+	 * </ul>
+	 *
+	 * <p>Placing the files under {@code textures/block/} is therefore load-bearing in both
+	 * worlds: it satisfies the atlas, and this full path satisfies the direct binding.
+	 * Moving them out of {@code textures/block/} breaks the item icon even though the
+	 * in-world lid keeps working.
+	 */
+	private static final Identifier LID_TOP = MinCialloDustbin.id("textures/block/dustbin_lid_top.png");
 	/** Sides and underside of the lid. */
-	private static final Identifier LID_SIDE = MinCialloDustbin.id("entity/dustbin/lid_side");
+	private static final Identifier LID_SIDE = MinCialloDustbin.id("textures/block/dustbin_lid_side.png");
 	/** The ribbed lift tab sitting on top of the lid. */
-	private static final Identifier LID_HANDLE = MinCialloDustbin.id("entity/dustbin/lid_handle");
+	private static final Identifier LID_HANDLE = MinCialloDustbin.id("textures/block/dustbin_lid_handle.png");
 
 	/** How far the lid swings open, in degrees. */
 	private static final float MAX_OPEN_ANGLE = 95.0f;

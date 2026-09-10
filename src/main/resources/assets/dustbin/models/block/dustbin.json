@@ -5,9 +5,9 @@
     "side": "dustbin:block/dustbin_side",
     "bottom": "dustbin:block/dustbin_bottom",
     "interior": "dustbin:block/dustbin_interior",
-    "lid_top": "dustbin:entity/dustbin/lid_top",
-    "lid_side": "dustbin:entity/dustbin/lid_side",
-    "lid_handle": "dustbin:entity/dustbin/lid_handle"
+    "lid_top": "dustbin:block/dustbin_lid_top",
+    "lid_side": "dustbin:block/dustbin_lid_side",
+    "lid_handle": "dustbin:block/dustbin_lid_handle"
   },
   "elements": [
     {
