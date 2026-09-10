@@ -1,0 +1,23 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "dustbin:block/dustbin_side",
+    "side": "dustbin:block/dustbin_side",
+    "bottom": "dustbin:block/dustbin_bottom",
+    "interior": "dustbin:block/dustbin_interior"
+  },
+  "elements": [
+    {
+      "from": [3, 0, 3],
+      "to": [13, 12, 13],
+      "faces": {
+        "down": { "texture": "#bottom", "uv": [0, 0, 16, 16], "cullface": "down" },
+        "up": { "texture": "#interior", "uv": [0, 0, 16, 16] },
+        "north": { "texture": "#side", "uv": [0, 0, 16, 16] },
+        "south": { "texture": "#side", "uv": [0, 0, 16, 16] },
+        "west": { "texture": "#side", "uv": [0, 0, 16, 16] },
+        "east": { "texture": "#side", "uv": [0, 0, 16, 16] }
+      }
+    }
+  ]
+}

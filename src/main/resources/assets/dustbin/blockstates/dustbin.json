@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "open=false": {
+      "model": "dustbin:block/dustbin_body"
+    },
+    "open=true": {
+      "model": "dustbin:block/dustbin_body"
+    }
+  }
+}

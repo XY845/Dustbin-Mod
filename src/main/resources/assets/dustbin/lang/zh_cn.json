@@ -1,0 +1,7 @@
+{
+  "block.dustbin.dustbin": "垃圾桶",
+  "item.dustbin.dustbin": "垃圾桶",
+  "container.dustbin.dustbin": "垃圾桶",
+  "commands.dustbin.cleared": "已从垃圾桶中清空 %s 组物品。",
+  "commands.dustbin.settime": "掉落物将在 %s 分钟后进入垃圾桶。"
+}

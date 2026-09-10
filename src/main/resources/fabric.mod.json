@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "dustbin",
+	"version": "${version}",
+	"name": "Dustbin",
+	"description": "Dropped items that would despawn are instead collected into a shared per-dimension trash bin (54 slots). Each item type takes exactly one slot and is stored up to that item's own max stack size; any overflow is discarded. The bin is take-only - you can withdraw items but cannot put them in by hand. Operators can use /dustbin clear and /dustbin settime <minutes>.",
+	"authors": [
+		"MinCiallo"
+	],
+	"contact": {
+		"homepage": "https://github.com/MinCiallo/Dustbin-Mod",
+		"sources": "https://github.com/MinCiallo/Dustbin-Mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/dustbin/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.minciallo.dustbin.MinCialloDustbin"
+		],
+		"client": [
+			"com.minciallo.dustbin.client.MinCialloDustbinClient"
+		],
+		"fabric-datagen": [
+			"com.minciallo.dustbin.client.MinCialloDustbinDataGenerator"
+		]
+	},
+	"mixins": [
+		"dustbin.mixins.json",
+		{
+			"config": "dustbin.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

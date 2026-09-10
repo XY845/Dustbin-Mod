@@ -1,0 +1,49 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "dustbin:block/dustbin_side",
+    "side": "dustbin:block/dustbin_side",
+    "bottom": "dustbin:block/dustbin_bottom",
+    "interior": "dustbin:block/dustbin_interior",
+    "lid_top": "dustbin:entity/dustbin/lid_top",
+    "lid_side": "dustbin:entity/dustbin/lid_side",
+    "lid_handle": "dustbin:entity/dustbin/lid_handle"
+  },
+  "elements": [
+    {
+      "from": [3, 0, 3],
+      "to": [13, 12, 13],
+      "faces": {
+        "down": { "texture": "#bottom", "uv": [0, 0, 16, 16], "cullface": "down" },
+        "up": { "texture": "#interior", "uv": [0, 0, 16, 16] },
+        "north": { "texture": "#side", "uv": [0, 0, 16, 16] },
+        "south": { "texture": "#side", "uv": [0, 0, 16, 16] },
+        "west": { "texture": "#side", "uv": [0, 0, 16, 16] },
+        "east": { "texture": "#side", "uv": [0, 0, 16, 16] }
+      }
+    },
+    {
+      "from": [2.5, 11, 2.5],
+      "to": [13.5, 12.5, 13.5],
+      "faces": {
+        "down": { "texture": "#lid_side", "uv": [0, 0, 16, 16] },
+        "up": { "texture": "#lid_top", "uv": [0, 0, 16, 16] },
+        "north": { "texture": "#lid_side", "uv": [0, 0, 16, 16] },
+        "south": { "texture": "#lid_side", "uv": [0, 0, 16, 16] },
+        "west": { "texture": "#lid_side", "uv": [0, 0, 16, 16] },
+        "east": { "texture": "#lid_side", "uv": [0, 0, 16, 16] }
+      }
+    },
+    {
+      "from": [6, 12.5, 7],
+      "to": [10, 13.5, 9],
+      "faces": {
+        "up": { "texture": "#lid_handle", "uv": [0, 0, 16, 16] },
+        "north": { "texture": "#lid_handle", "uv": [0, 0, 16, 16] },
+        "south": { "texture": "#lid_handle", "uv": [0, 0, 16, 16] },
+        "west": { "texture": "#lid_handle", "uv": [0, 0, 16, 16] },
+        "east": { "texture": "#lid_handle", "uv": [0, 0, 16, 16] }
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "block.dustbin.dustbin": "Trash Bin",
+  "item.dustbin.dustbin": "Trash Bin",
+  "container.dustbin.dustbin": "Trash Bin",
+  "commands.dustbin.cleared": "Cleared %s item stacks from the trash bin.",
+  "commands.dustbin.settime": "Dropped items will now enter the trash bin after %s minute(s)."
+}

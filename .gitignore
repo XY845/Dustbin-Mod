@@ -1,0 +1,49 @@
+# gradle
+
+.gradle/
+build/
+out/
+classes/
+
+# eclipse
+
+*.launch
+
+# idea
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+
+*.DS_Store
+
+# fabric
+
+run/
+
+# java
+
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
+
+# assistant workspace (internal notes and previews, not for publication)
+
+.workbuddy/
+.trae/
+
+# AI-generated source images (superseded by the procedural textures; kept locally only)
+
+generated-images/
