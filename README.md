@@ -43,8 +43,8 @@ The mod id is `dustbin` and **stays the same across loaders**; only the artifact
 
 - 物品存活时间达到阈值后自动收入垃圾桶，原版的 5 分钟消失逻辑被取消。  
   Items are collected as soon as they reach the configured age; vanilla's 5-minute despawn is cancelled.
-- 阈值默认 **10 分钟**，可调范围 **1 ~ 1440 分钟**。  
-  The default threshold is **10 minutes**, adjustable between **1 and 1440 minutes**.
+- 阈值默认 **1 分钟**，可调范围 **1 ~ 1440 分钟**。  
+  The default threshold is **1 minute**, adjustable between **1 and 1440 minutes**.
 - 垃圾桶已满时（54 格全占、且没有同类物品所在格），物品**回落到原版行为**正常消失 —— 它是兜底，不是无限仓库。  
   When the bin is full (all 54 slots taken, with no slot holding the same item), items **fall back to vanilla despawn** — the bin is a safety net, not unlimited storage.
 
@@ -68,6 +68,18 @@ The GUI is a standard 6×9 chest layout, but **item placement is blocked in ever
 打开界面时桶盖掀起，关闭时合上（ESC、走远、死亡、切换维度都会触发）。盖子由 BlockEntityRenderer 逐帧插值渲染，不是瞬间切换。
 
 The lid lifts when the GUI opens and folds back when it closes (ESC, walking away, dying, or changing dimension). The lid is interpolated frame-by-frame by a BlockEntityRenderer — not an instant state swap.
+
+### 朝向 / Facing
+
+放置时垃圾桶的正面朝向玩家，规则与箱子一致；盖子的铰链在背面下沿，所以掀盖时盖子朝远离玩家的一侧翻起。简单说：**你从哪边放，它就从哪边打开**。
+
+The bin's front faces you when placed, exactly like a chest. The lid hinges along its back edge, so it tips away from you — **whichever side you place it from is the side it opens towards**.
+
+### 挖掘 / Mining
+
+**石镐及以上**才能挖下（木镐挖了不掉落）。硬度与箱子同档：石镐约 0.8 秒、铁镐约 0.5 秒、钻石镐约 0.4 秒、下界合金镐约 0.3 秒。
+
+Needs a **stone pickaxe or better** — a wooden pickaxe yields nothing. Hardness matches a chest's: roughly 0.8 s with stone, 0.5 s with iron, 0.4 s with diamond, 0.3 s with netherite.
 
 ### 指令 / Commands
 

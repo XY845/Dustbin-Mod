@@ -6,6 +6,7 @@ import com.minciallo.dustbin.block.DustbinBlockEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
 
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -112,6 +113,7 @@ public class DustbinBlockEntityRenderer implements BlockEntityRenderer<DustbinBl
 		BlockEntityRenderer.super.extractRenderState(blockEntity, state, partialTick, cameraPos, crumblingOverlay);
 
 		BlockPos pos = blockEntity.getBlockPos();
+		state.facing = blockEntity.getBlockState().getValue(DustbinBlock.FACING);
 		float target = blockEntity.getBlockState().getValue(DustbinBlock.OPEN) ? 1.0f : 0.0f;
 
 		long now = Util.getMillis();
@@ -146,7 +148,19 @@ public class DustbinBlockEntityRenderer implements BlockEntityRenderer<DustbinBl
 
 		poseStack.pushPose();
 
-		// Hinge on the back-bottom edge of the lid, so it tips up and back like a real bin.
+		// 1) 先按方块朝向摆正整个盖子。
+		//
+		// 枢轴必须是方块中心 (0.5, 0.5, 0.5)：方块模型的 y 旋转就是这个枢轴，
+		// 若改用方块原点，盖子会整体平移半格，和桶身错位。
+		//
+		// 符号：blockstate 里写 y = facing.toYRot()，而 y 值 N 等价于代码中的
+		// rotationDegrees(-N)（原版 ChestRenderer 即如此）。两处必须成对修改，
+		// 只改一边会出现"桶身转了、盖子没转"。
+		poseStack.translate(0.5f, 0.5f, 0.5f);
+		poseStack.mulPose(Axis.YP.rotationDegrees(-state.facing.toYRot()));
+		poseStack.translate(-0.5f, -0.5f, -0.5f);
+
+		// 2) 再绕铰链掀盖：铰链在盖子背面的下沿，于是盖子向远离玩家的一侧翻起。
 		poseStack.translate(0.0f, LID_Y0, LID_Z0);
 		poseStack.mulPose(new Quaternionf().rotationX((float) Math.toRadians(-MAX_OPEN_ANGLE * state.openness)));
 		poseStack.translate(0.0f, -LID_Y0, -LID_Z0);

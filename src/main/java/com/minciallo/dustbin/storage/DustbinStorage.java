@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class DustbinStorage extends SavedData {
 	public static final String NAME = "dustbin_storage";
-	public static final int DEFAULT_COLLECTION_TICKS = 10 * 60 * 20; // 10 minutes
+	public static final int DEFAULT_COLLECTION_TICKS = 1 * 60 * 20; // 1 minute
 	public static final int MIN_COLLECTION_TICKS = 1 * 60 * 20; // 1 minute
 	public static final int MAX_COLLECTION_TICKS = 1440 * 60 * 20; // 1 day (1440 minutes)
 
