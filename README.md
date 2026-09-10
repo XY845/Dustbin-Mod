@@ -8,7 +8,7 @@
 
 ![Java](https://img.shields.io/badge/Java-25-orange)
 
-![License](https://img.shields.io/badge/License-CC0--1.0-lightgrey)
+![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey)
 
 > 掉落物不再无声消失 —— 它们会滑进一个共享的垃圾桶。  
 > Dropped items no longer vanish silently — they slide into a shared trash bin.
@@ -152,6 +152,6 @@ The artifact lands in `build/libs/dustbin-fabric-1.0.0.jar`.
 
 ## 许可证 / License
 
-[CC0 1.0 Universal](LICENSE) —— 公共领域献出，可自由使用、修改、再分发。
+[CC BY-NC-SA 4.0](LICENSE) —— 允许使用、修改与再分发，但**必须署名**、**不得用于商业用途**，且衍生作品需以相同协议共享。
 
-[CC0 1.0 Universal](LICENSE) — public domain dedication. Free to use, modify, and redistribute.
+[CC BY-NC-SA 4.0](LICENSE) — use, adaptation and redistribution are permitted, provided you **give attribution**, **do not use it commercially**, and **share derivatives under the same license**.

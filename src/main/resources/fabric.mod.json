@@ -11,7 +11,7 @@
 		"homepage": "https://github.com/MinCiallo/Dustbin-Mod",
 		"sources": "https://github.com/MinCiallo/Dustbin-Mod"
 	},
-	"license": "CC0-1.0",
+	"license": "CC-BY-NC-SA-4.0",
 	"icon": "assets/dustbin/icon.png",
 	"environment": "*",
 	"entrypoints": {
