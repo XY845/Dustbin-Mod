@@ -117,7 +117,7 @@ public class DustbinBlockEntityRenderer implements BlockEntityRenderer<DustbinBl
 		float target = blockEntity.getBlockState().getValue(DustbinBlock.OPEN) ? 1.0f : 0.0f;
 
 		long now = Util.getMillis();
-		float current = progress.getOrDefault(pos, target);
+		float current = progress.getOrDefault(pos, 0.0f);
 		long previous = lastUpdate.getOrDefault(pos, now);
 		lastUpdate.put(pos, now);
 
